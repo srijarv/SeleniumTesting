@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class GetAboutThisItemAndLog {
+public class AboutThisItem {
 	WebDriver driver;
 	
-	public GetAboutThisItemAndLog(WebDriver driver) {
+	public AboutThisItem(WebDriver driver) {
 		this.driver =  driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -27,7 +27,7 @@ public class GetAboutThisItemAndLog {
 	@FindBy(xpath="//ul[@class='a-unordered-list a-vertical a-spacing-mini']/li")
 	List<WebElement> productDescription;
 	
-	public void getAboutThisItemAndLog(JavascriptExecutor js) throws InterruptedException {
+	public void validateAboutThisItemAndLog(JavascriptExecutor js) throws InterruptedException {
 		js.executeScript("arguments[0].scrollIntoView();", aboutThisItem);
 		Assert.assertEquals(aboutThisItem.getText(), "About this item");
 		for(int i = 0; i < productDescription.size(); i++) {
